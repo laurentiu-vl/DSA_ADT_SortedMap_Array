@@ -172,6 +172,7 @@ void SortedMap::resize() {
 
 	delete[] array;
 	array = temp;
+	//resize
 
 }
 
