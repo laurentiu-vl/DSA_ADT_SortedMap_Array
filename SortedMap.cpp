@@ -52,7 +52,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 		if (ascending) {
 			if (k < array[i - 1].first) {
 
-				array[i + 1] = array[i];
+				array[i] = array[i - 1];
 
 			}
 			else {
@@ -67,7 +67,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 		else {
 			if (k > array[i - 1].first) {
 
-				array[i + 1] = array[i];
+				array[i] = array[i - 1];
 			}
 			else {
 				array[i] = TElem(k, v);
@@ -163,14 +163,13 @@ SortedMap::~SortedMap() {
 
 void SortedMap::resize() {
 
-	TElem *temp = new TElem[capacity];
 	capacity *= 2;
+	TElem *temp = new TElem[capacity];
 
 	for (int i = 0; i < sizeOf; i++) {
 		temp[i] = array[i];
 	}
 
-	delete[] array;
 	array = temp;
 	//resize
 
