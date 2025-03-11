@@ -22,7 +22,12 @@ void SMIterator::first(){ //default
 void SMIterator::next(){ //default
     //TODO - Implementation
 
-    if (index < map.sizeOf) {
+    if (index == 99) {
+        int i = 5;
+        int j=i;
+    }
+
+    if (index + 1 < map.sizeOf) {
         index = index + 1;
     }
     else {
