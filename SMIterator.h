@@ -26,12 +26,6 @@ private:
     //SortedMap map;
     int index;
 
-
-
-
-
-
-
 public:
 
     void first();
