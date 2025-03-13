@@ -8,8 +8,9 @@ SortedMap::SortedMap(Relation r) {
 
 	capacity = 2;
 	array = new TElem[capacity];
-	ascending = r;
+	//ascending = r;
 	sizeOf = 0;
+	Relation r;
 
 }
 
@@ -49,7 +50,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 
 	for (int i = sizeOf; i >= 0; i--) {
 
-		if (ascending) {
+		if (ascending) { //if Relation(a, b) trebuie modificat
 			if (k < array[i - 1].first) {
 
 				array[i] = array[i - 1];

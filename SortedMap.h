@@ -39,7 +39,8 @@ private:
 
     int capacity;
     int sizeOf;
-    bool ascending;
+    //bool ascending;
+    Relation compare;
 
     void resize();
 
