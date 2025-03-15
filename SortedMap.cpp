@@ -30,14 +30,6 @@ TValue SortedMap::add(TKey k, TValue v) {
 		return NULL_TVALUE;
 	}
 
-	/*if (sizeOf == 1) {
-		if (ascending) {
-			if (k < array[0].first) {
-				array[1] = arr
-			}
-		}
-	}*/
-
 	for (int i = 0; i < sizeOf; i++) {
 		if (array[i].first == k) {
 
