@@ -3,57 +3,46 @@
 #include <exception>
 #include <assert.h>
 #include <stdexcept>
+#include <iostream>
 
 using namespace std;
 
 SMIterator::SMIterator(const SortedMap& m) : map(m){ //default
 
-    index = 0;;
+    index = 0;
 
 }
 
-void SMIterator::first(){ //default
+void SMIterator::first() { //default
 
     index = 0; //for first elem in array
 
 }
 
-void SMIterator::next(){ //default
+void SMIterator::next() {
 
     if (!valid()) {
         throw out_of_range("Iterator out of range");
     }
     index++;
 
-    if (index >= map.size()) {
-        index = map.size();
-    }
-
-    // if (index < map.sizeOf) {
-    //     index = index + 1;
-    // }
-    // else {
-    //     throw std::out_of_range("Iterator is out of range"); //exception if out of range
-    //     //index = map.sizeOf; //invalid if?????
-    // }
 }
 
-bool SMIterator::valid() const{ //default
+bool SMIterator::valid() const {
 
-    if ((index < map.sizeOf) && (index >= 0)) { //TODO
+    if (index >= 0 && index < map.size()) {
         return true;
-
     }
     return false;
 }
 
-TElem SMIterator::getCurrent() const{ //default
+TElem SMIterator::getCurrent() const {
 
     if (valid()) {
         return map.array[index];
     }
-    throw std::out_of_range("Not valid");
-    //return NULL_TPAIR;
+    throw out_of_range("Iterator out of range");
+
 }
 
 
