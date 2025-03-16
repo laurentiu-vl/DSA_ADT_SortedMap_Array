@@ -35,8 +35,6 @@ bool SMIterator::valid() const{ //default
 
     }
     return false;
-
-    //return false;
 }
 
 TElem SMIterator::getCurrent() const{ //default
@@ -44,10 +42,7 @@ TElem SMIterator::getCurrent() const{ //default
     if (valid()) {
         return map.array[index];
     }
-    else {
-        throw std::out_of_range("Not valid");
-    }
-
+    throw std::out_of_range("Not valid");
     //return NULL_TPAIR;
 }
 
