@@ -114,7 +114,6 @@ TValue SortedMap::add(TKey k, TValue v) {
 }
 
 TValue SortedMap::search(TKey k) const {
-	//TODO - Implementation
 
 	for (int i = 0; i < sizeOf; i++) {
 		if (array[i].first == k) {
