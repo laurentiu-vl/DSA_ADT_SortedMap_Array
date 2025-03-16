@@ -7,25 +7,17 @@
 using namespace std;
 
 SMIterator::SMIterator(const SortedMap& m) : map(m){ //default
-    //TODO - Implementation
 
     index = 0;;
 
 }
 
 void SMIterator::first(){ //default
-    //TODO - Implementation
 
     index = 0; //for first elem in array
 }
 
 void SMIterator::next(){ //default
-    //TODO - Implementation
-
-    // if (index == 99) {
-    //     int i = 5;
-    //     int j=i;
-    // }
 
     if (index + 1 < map.sizeOf) {
         index = index + 1;
@@ -37,11 +29,6 @@ void SMIterator::next(){ //default
 }
 
 bool SMIterator::valid() const{ //default
-    //TODO - Implementation
-
-    // if (map.sizeOf == 0) {
-    //     return false;
-    // }
 
     if ((index < map.sizeOf) && (index >= 0)) { //TODO
         return true;
@@ -53,14 +40,12 @@ bool SMIterator::valid() const{ //default
 }
 
 TElem SMIterator::getCurrent() const{ //default
-    //TODO - Implementation
 
     if (valid()) {
         return map.array[index];
     }
     else {
         throw std::out_of_range("Not valid");
-        //return NULL_TPAIR;
     }
 
     //return NULL_TPAIR;
