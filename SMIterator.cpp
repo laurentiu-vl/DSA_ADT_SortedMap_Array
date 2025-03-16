@@ -15,17 +15,27 @@ SMIterator::SMIterator(const SortedMap& m) : map(m){ //default
 void SMIterator::first(){ //default
 
     index = 0; //for first elem in array
+
 }
 
 void SMIterator::next(){ //default
 
-    if (index + 1 < map.sizeOf) {
-        index = index + 1;
+    if (!valid()) {
+        throw out_of_range("Iterator out of range");
     }
-    else {
-        //throw std::out_of_range("Iterator is out of range"); //exception if out of range
-        index = map.sizeOf; //invalid if?????
+    index++;
+
+    if (index >= map.size()) {
+        index = map.size();
     }
+
+    // if (index < map.sizeOf) {
+    //     index = index + 1;
+    // }
+    // else {
+    //     throw std::out_of_range("Iterator is out of range"); //exception if out of range
+    //     //index = map.sizeOf; //invalid if?????
+    // }
 }
 
 bool SMIterator::valid() const{ //default
