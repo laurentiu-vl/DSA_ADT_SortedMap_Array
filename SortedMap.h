@@ -23,25 +23,16 @@ typedef bool(*Relation)(TKey, TKey);
 class SortedMap {
     friend class SMIterator;
 
-    //struct KeyValuePair { //struct
-    //	int key;
-    //	int value;
-    //};
-
 private:
-    //TODO - Representation
 
     /* ADT SortedMap – repräsentiert mithilfe eines dynamischen Arrays von Paaren der Form
             (key, value) und sortiert mithilfe einer Relation auf den Schlüsseln (key)
     */
 
     TElem* array;
-
     int capacity;
     int sizeOf;
-    //bool ascending;
     Relation compare;
-
     void resize();
 
 public:
@@ -56,7 +47,6 @@ public:
 
     //searches for the key and returns the value associated with the key if the map contains the key or null: NULL_TVALUE otherwise
     TValue search(TKey c) const;
-
 
     //removes a key from the map and returns the value associated with the key if the key existed ot null: NULL_TVALUE otherwise
     TValue remove(TKey c);

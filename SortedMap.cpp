@@ -60,12 +60,6 @@ TValue SortedMap::add(TKey k, TValue v) {
 	sizeOf++;
 	return NULL_TVALUE;
 
-
-
-
-
-
-
 	// OLD ADD BEFORE RELATION ADDED IN CONSTRUCTOR
 	// if (sizeOf == capacity) { //resize if condition corect?
 	//
@@ -167,7 +161,6 @@ TValue SortedMap::remove(TKey k) {
 }
 
 int SortedMap::size() const {
-	//TODO - Implementation
 
 	return sizeOf;
 
@@ -175,7 +168,6 @@ int SortedMap::size() const {
 }
 
 bool SortedMap::isEmpty() const {
-	//TODO - Implementation
 
 	if (sizeOf == 0) {
 		return true;
