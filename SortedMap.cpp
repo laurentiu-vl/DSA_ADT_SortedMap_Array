@@ -15,7 +15,7 @@ SortedMap::SortedMap(Relation r) {
 
 TValue SortedMap::add(TKey k, TValue v) {
 
-	for (int i = 0; i < sizeOf; i++) {
+	for (int i = 0; i < sizeOf; i++) { //if key k already exists
 			if  (array[i].first == k) {
 				TValue oldValue = array[i].second; //save the old value of the value of the k array[i].first for return
 				array[i].second = v; //save the new value v to the key
@@ -23,7 +23,31 @@ TValue SortedMap::add(TKey k, TValue v) {
 			}
 	}
 
-	if (sizeOf == capacity) {
+	if (sizeOf == 0) { //sortedmap is empty
+		array[0] = TElem(k, v);
+		sizeOf = 1;
+		return NULL_TVALUE;
+	}
+
+	if (sizeOf == 1) {
+		if (array[0].first == k) {
+			TValue oldValue = array[0].second;
+			array[0] = TElem(k, v);
+			return oldValue;
+		}
+		if (compare(k,array[0].first)) {
+			array[1] = TElem(k, v);
+			sizeOf += 1;
+		}
+		else {
+			array[1] = array[0];
+			array[0] = TElem(k, v);
+			sizeOf += 1;
+		}
+		return NULL_TVALUE;
+	}
+
+	if (sizeOf == capacity) { //resize
 		resize();
 	}
 
@@ -34,6 +58,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 	}
 	array[index] = TElem(k, v);
 	sizeOf++;
+	return NULL_TVALUE;
 
 
 
