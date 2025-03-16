@@ -4,7 +4,6 @@
 using namespace std;
 
 SortedMap::SortedMap(Relation r) {
-	//TODO - Implementation
 
 	capacity = 2;
 	array = new TElem[capacity];
@@ -163,7 +162,6 @@ int SortedMap::size() const {
 
 	return sizeOf;
 
-	//return 0;
 }
 
 bool SortedMap::isEmpty() const {
@@ -171,15 +169,13 @@ bool SortedMap::isEmpty() const {
 	if (sizeOf == 0) {
 		return true;
 	}
-	else {
-		return false;
-	}
+	return false;
 
-	//return false;
 }
 
 SMIterator SortedMap::iterator() const {
 	return SMIterator(*this);
+
 }
 
 SortedMap::~SortedMap() {
