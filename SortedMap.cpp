@@ -184,7 +184,6 @@ SMIterator SortedMap::iterator() const {
 }
 
 SortedMap::~SortedMap() {
-	//TODO - Implementation
 
 	delete[] array;
 
@@ -199,8 +198,7 @@ void SortedMap::resize() {
 		temp[i] = array[i];
 	}
 
+	delete[] array;
 	array = temp;
-	//resize
-
 }
 
