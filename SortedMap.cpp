@@ -8,14 +8,27 @@ SortedMap::SortedMap(Relation r) {
 
 	capacity = 2;
 	array = new TElem[capacity];
-	//ascending = r;
 	sizeOf = 0;
 	compare = r;
 
 }
 
 TValue SortedMap::add(TKey k, TValue v) {
-	//TODO - Implementation
+
+	for ( int i = 0; i < sizeOf; i++) {
+			if  (array[i].first == k) {
+				TValue oldValue = array[i].second; //save the old value of the value of the k array[i].first for return
+				array[i].second = v; //save the new value v to the key
+				return oldValue; //return the old value of the k
+			}
+	}
+
+	if (sizeOf == capacity) {
+		resize();
+	}
+
+
+
 
 
 
