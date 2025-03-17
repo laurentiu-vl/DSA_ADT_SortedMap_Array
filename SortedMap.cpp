@@ -44,6 +44,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 			sizeOf += 1;
 		}
 		return NULL_TVALUE;
+
 	}
 
 	if (sizeOf == capacity) { //resize
@@ -59,6 +60,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 	sizeOf++;
 
 	return NULL_TVALUE;
+
 }
 
 TValue SortedMap::search(TKey k) const {
@@ -69,6 +71,7 @@ TValue SortedMap::search(TKey k) const {
 		}
 	}
 	return NULL_TVALUE;
+
 }
 
 TValue SortedMap::remove(TKey k) {
@@ -104,6 +107,7 @@ TValue SortedMap::remove(TKey k) {
 	 	return oldValue;
 	}
 	return NULL_TVALUE;
+
 }
 
 int SortedMap::size() const {
@@ -122,6 +126,7 @@ bool SortedMap::isEmpty() const {
 }
 
 SMIterator SortedMap::iterator() const {
+
 	return SMIterator(*this);
 
 }
@@ -143,5 +148,6 @@ void SortedMap::resize() {
 
 	delete[] array;
 	array = temp;
+
 }
 
