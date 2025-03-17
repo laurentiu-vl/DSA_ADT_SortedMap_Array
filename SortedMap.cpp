@@ -124,41 +124,63 @@ TValue SortedMap::search(TKey k) const {
 }
 
 TValue SortedMap::remove(TKey k) {
-	//TODO - Implementation
 
 	if (sizeOf == 0) {
 		return NULL_TVALUE;
 	}
 
-	if (sizeOf == 1) {
-		if (array[0].first == k) {
+	if (sizeOf == 1 && array[0].first == k) {
 			TValue oldValue = array[0].second;
-			array[0] = NULL_TPAIR;
+			//array[0] = NULL_TPAIR;
 			sizeOf = 0;
 			return oldValue;
-		}
 	}
 
-	bool controlFound = false;
-	for (int i = 0; i < sizeOf; i++) {
-		if (array[i].second == k) {
-			TValue temp_value = array[i].second;
-			int controlFound = true;
+	 bool found = false;
+	 int indexKeyFoundToBeRemoved = 0;
+	 TValue oldValue = NULL_TVALUE;
+	 for (int i = 0; i < sizeOf; i++) {
+	 	if (array[i].first == k) {
+	 		found = true; //key found
+	 		oldValue = array[i].second;
+	 		indexKeyFoundToBeRemoved = i;
+	 		break;
+	 	}
+	 }
 
-			sizeOf--;
-			for (int j = i; j < sizeOf; j++) {
-				array[j] = array[j + 1];
-			}
-			return temp_value;
-			break;
-		}
-	}
-	// if (controlFound == false) {
-	// 	return NULL_TVALUE;
-	// }
-
+	 if (found) {
+	 	for (int i = indexKeyFoundToBeRemoved; i < sizeOf; i++) {
+	 		array[i] = array[i + 1];
+	 	}
+	 	sizeOf--;
+	 	return oldValue;
+	 }
 	return NULL_TVALUE;
+
+
+
+
 }
+
+
+
+	// bool controlFound = false;
+	// for (int i = 0; i < sizeOf; i++) {
+	// 	if (array[i].second == k) {
+	// 		TValue temp_value = array[i].second;
+	// 		int controlFound = true;
+	//
+	// 		sizeOf--;
+	// 		for (int j = i; j < sizeOf; j++) {
+	// 			array[j] = array[j + 1];
+	// 		}
+	// 		return temp_value;
+	// 		break;
+	// 	}
+	// }
+	// // if (controlFound == false) {
+	// // 	return NULL_TVALUE;
+	// // }
 
 int SortedMap::size() const {
 
