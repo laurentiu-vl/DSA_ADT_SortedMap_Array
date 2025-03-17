@@ -156,31 +156,7 @@ TValue SortedMap::remove(TKey k) {
 	 	return oldValue;
 	 }
 	return NULL_TVALUE;
-
-
-
-
 }
-
-
-
-	// bool controlFound = false;
-	// for (int i = 0; i < sizeOf; i++) {
-	// 	if (array[i].second == k) {
-	// 		TValue temp_value = array[i].second;
-	// 		int controlFound = true;
-	//
-	// 		sizeOf--;
-	// 		for (int j = i; j < sizeOf; j++) {
-	// 			array[j] = array[j + 1];
-	// 		}
-	// 		return temp_value;
-	// 		break;
-	// 	}
-	// }
-	// // if (controlFound == false) {
-	// // 	return NULL_TVALUE;
-	// // }
 
 int SortedMap::size() const {
 
