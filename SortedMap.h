@@ -33,7 +33,8 @@ private:
     int capacity;
     int sizeOf;
     Relation compare;
-    void resize();
+    void resizeUp();
+    void resizeDown();
 
 public:
 
