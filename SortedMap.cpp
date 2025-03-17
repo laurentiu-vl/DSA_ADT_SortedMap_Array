@@ -14,7 +14,7 @@ SortedMap::SortedMap(Relation r) {
 
 TValue SortedMap::add(TKey k, TValue v) {
 
-	for (int i = 0; i < sizeOf; i++) { //if key k already exists
+	for (int i = 0; i < sizeOf; i++) { //if key k already exists in array, return TValue oldValue
 			if  (array[i].first == k) {
 				TValue oldValue = array[i].second; //save the old value of the value of the k array[i].first for return
 				array[i].second = v; //save the new value v to the key
@@ -28,31 +28,32 @@ TValue SortedMap::add(TKey k, TValue v) {
 		return NULL_TVALUE;
 	}
 
-	if (sizeOf == 1) {
-		if (array[0].first == k) {
+	if (sizeOf == 1) { //size of sm is 1
+		if (array[0].first == k) { //if the key in array is the same with k as paramater from add
 			TValue oldValue = array[0].second;
 			array[0] = TElem(k, v);
 			return oldValue;
 		}
-		if (compare(array[0].first, k)) { //!!!!!!!!!!!! la increasing/decreasing c1 vine ca element din array, iar c2 ca noua cheie
-			array[1] = TElem(k, v);
+		if (compare(k, array[0].first)) {
+
+			array[1] = array[0]; //if c2<=c1
+			array[0] = TElem(k, v);
 			sizeOf += 1;
 		}
 		else {
-			array[1] = array[0];
-			array[0] = TElem(k, v);
+			array[1] = TElem(k, v); //if c1<=c2
 			sizeOf += 1;
 		}
 		return NULL_TVALUE;
 
 	}
 
-	if (sizeOf == capacity) { //resize
-		resizeUp();
+	if (sizeOf == capacity) {
+		resizeUp(); //resize
 	}
 
 	int index = sizeOf;
-	while (index > 0 && compare(k, array[index - 1].first)) {
+	while (index > 0 && compare(k, array[index - 1].first)) { //general case
 		array[index] = array[index - 1];
 		index--;
 	}
@@ -84,14 +85,14 @@ TValue SortedMap::remove(TKey k) {
 			TValue oldValue = array[0].second;
 			//array[0] = NULL_TPAIR;
 			sizeOf = 0;
-			return array[0].second;
+			return array[0].second; //return TValue value of the key is found
 	}
 
 	bool found = false;
 	int indexKeyFoundToBeRemoved = 0;
 	TValue oldValue = NULL_TVALUE;
 	for (int i = 0; i < sizeOf; i++) {
-	 	if (array[i].first == k) {
+	 	if (array[i].first == k) { //check if the key is found in array
 	 		found = true; //key found
 	 		oldValue = array[i].second;
 	 		indexKeyFoundToBeRemoved = i;
@@ -100,14 +101,14 @@ TValue SortedMap::remove(TKey k) {
 	}
 
 	if (found) {
-	 	for (int i = indexKeyFoundToBeRemoved; i < sizeOf; i++) {
+	 	for (int i = indexKeyFoundToBeRemoved; i < sizeOf; i++) { //shift the element from the index of the key removed
 	 		array[i] = array[i + 1];
 	 	}
 	 	sizeOf--;
 		if (sizeOf <= capacity / 4) {
-			resizeDown();
+			resizeDown(); //resize down
 		}
-	 	return oldValue;
+	 	return oldValue; //return TValue oldValue of the deleted key
 	}
 	return NULL_TVALUE;
 
