@@ -34,7 +34,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 			array[0] = TElem(k, v);
 			return oldValue;
 		}
-		if (compare(k,array[0].first)) {
+		if (compare(array[0].first, k)) { //!!!!!!!!!!!! la increasing/decreasing c1 vine ca element din array, iar c2 ca noua cheie
 			array[1] = TElem(k, v);
 			sizeOf += 1;
 		}
@@ -57,6 +57,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 	}
 	array[index] = TElem(k, v);
 	sizeOf++;
+
 	return NULL_TVALUE;
 
 	// OLD ADD BEFORE RELATION ADDED IN CONSTRUCTOR
