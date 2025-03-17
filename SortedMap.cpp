@@ -84,25 +84,25 @@ TValue SortedMap::remove(TKey k) {
 			return oldValue;
 	}
 
-	 bool found = false;
-	 int indexKeyFoundToBeRemoved = 0;
-	 TValue oldValue = NULL_TVALUE;
-	 for (int i = 0; i < sizeOf; i++) {
+	bool found = false;
+	int indexKeyFoundToBeRemoved = 0;
+	TValue oldValue = NULL_TVALUE;
+	for (int i = 0; i < sizeOf; i++) {
 	 	if (array[i].first == k) {
 	 		found = true; //key found
 	 		oldValue = array[i].second;
 	 		indexKeyFoundToBeRemoved = i;
 	 		break;
 	 	}
-	 }
+	}
 
-	 if (found) {
+	if (found) {
 	 	for (int i = indexKeyFoundToBeRemoved; i < sizeOf; i++) {
 	 		array[i] = array[i + 1];
 	 	}
 	 	sizeOf--;
 	 	return oldValue;
-	 }
+	}
 	return NULL_TVALUE;
 }
 
