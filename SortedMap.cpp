@@ -104,6 +104,9 @@ TValue SortedMap::remove(TKey k) {
 	 		array[i] = array[i + 1];
 	 	}
 	 	sizeOf--;
+		if (sizeOf <= capacity / 4) {
+			resizeDown();
+		}
 	 	return oldValue;
 	}
 	return NULL_TVALUE;
@@ -153,5 +156,14 @@ void SortedMap::resizeUp() {
 
 void SortedMap::resizeDown() {
 
+	capacity /= 2;
+	TElem *temp = new TElem[capacity];
+
+	for (int i = 0; i < sizeOf; i++) {
+		temp[i] = array[i];
+	}
+
+	delete[] array;
+	array = temp;
 }
 
