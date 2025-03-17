@@ -131,11 +131,12 @@ TValue SortedMap::remove(TKey k) {
 	}
 
 	if (sizeOf == 1) {
-		TValue temp_value = array[0].second;
-		array[0] = NULL_TPAIR;
-		sizeOf--;
-
-		return temp_value;
+		if (array[0].first == k) {
+			TValue oldValue = array[0].second;
+			array[0] = NULL_TPAIR;
+			sizeOf = 0;
+			return oldValue;
+		}
 	}
 
 	bool controlFound = false;
@@ -152,11 +153,11 @@ TValue SortedMap::remove(TKey k) {
 			break;
 		}
 	}
-	if (controlFound == false) {
-		return NULL_TVALUE;
-	}
+	// if (controlFound == false) {
+	// 	return NULL_TVALUE;
+	// }
 
-	//return NULL_TVALUE;
+	return NULL_TVALUE;
 }
 
 int SortedMap::size() const {
