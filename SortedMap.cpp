@@ -59,58 +59,6 @@ TValue SortedMap::add(TKey k, TValue v) {
 	sizeOf++;
 
 	return NULL_TVALUE;
-
-	// OLD ADD BEFORE RELATION ADDED IN CONSTRUCTOR
-	// if (sizeOf == capacity) { //resize if condition corect?
-	//
-	// 	resize();
-	//
-	// }
-	//
-	// if (sizeOf == 0) { //add the first TElem element
-	// 	array[0] = TElem(k, v);
-	// 	sizeOf++;
-	//
-	// 	return NULL_TVALUE;
-	// }
-	//
-	// for (int i = 0; i < sizeOf; i++) {
-	// 	if (array[i].first == k) {
-	//
-	// 		TValue temp_value = array[i].second;
-	// 		array[i].second = v; //if key already exists -> return old value (of the same key TKEy)
-	//
-	// 		return temp_value;
-	// 	}
-	// }
-	//
-	// for (int i = sizeOf; i >= 0; i--) {
-	//
-	// 	if (ascending) { //if Relation(a, b) trebuie modificat
-	// 		if (k < array[i - 1].first) {
-	//
-	// 			array[i] = array[i - 1];
-	//
-	// 		}
-	// 		else {
-	// 			array[i] = TElem(k, v);
-	// 			sizeOf++;
-	// 			break;
-	// 		}
-	// 	}
-	// 	else {
-	// 		if (k > array[i - 1].first) {
-	//
-	// 			array[i] = array[i - 1];
-	// 		}
-	// 		else {
-	// 			array[i] = TElem(k, v);
-	// 			sizeOf++;
-	// 			break;
-	// 		}
-	// 	}
-	// }
-	// return NULL_TVALUE;
 }
 
 TValue SortedMap::search(TKey k) const {
