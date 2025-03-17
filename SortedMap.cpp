@@ -48,7 +48,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 	}
 
 	if (sizeOf == capacity) { //resize
-		resize();
+		resizeUp();
 	}
 
 	int index = sizeOf;
@@ -84,7 +84,7 @@ TValue SortedMap::remove(TKey k) {
 			TValue oldValue = array[0].second;
 			//array[0] = NULL_TPAIR;
 			sizeOf = 0;
-			return oldValue;
+			return array[0].second;
 	}
 
 	bool found = false;
@@ -137,7 +137,7 @@ SortedMap::~SortedMap() {
 
 }
 
-void SortedMap::resize() {
+void SortedMap::resizeUp() {
 
 	capacity *= 2;
 	TElem *temp = new TElem[capacity];
@@ -148,6 +148,10 @@ void SortedMap::resize() {
 
 	delete[] array;
 	array = temp;
+
+}
+
+void SortedMap::resizeDown() {
 
 }
 
