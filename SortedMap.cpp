@@ -36,12 +36,12 @@ TValue SortedMap::add(TKey k, TValue v) {
 		}
 		if (compare(k, array[0].first)) {
 
-			array[1] = array[0]; //if c2<=c1
+			array[1] = array[0]; //if args should be in ascending order -> add k first, arr[] second
 			array[0] = TElem(k, v);
 			sizeOf += 1;
 		}
-		else {
-			array[1] = TElem(k, v); //if c1<=c2
+		else { //if k > arr -> place k second in arr
+			array[1] = TElem(k, v);
 			sizeOf += 1;
 		}
 		return NULL_TVALUE;
