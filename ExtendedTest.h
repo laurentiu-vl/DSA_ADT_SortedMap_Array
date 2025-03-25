@@ -7,7 +7,6 @@
 
 #pragma once
 
-
 void testAllExtended();
 
 #endif //EXTENDEDTEST_H

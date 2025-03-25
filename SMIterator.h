@@ -5,8 +5,6 @@
 #ifndef SMITERATOR_H
 #define SMITERATOR_H
 
-
-
 #pragma once
 #include "SortedMap.h"
 
@@ -33,9 +31,5 @@ public:
     bool valid() const;
     TElem getCurrent() const;
 };
-
-
-
-
 
 #endif //SMITERATOR_H
