@@ -7,19 +7,22 @@
 
 using namespace std;
 
-SMIterator::SMIterator(const SortedMap &m) : map(m) { //theta(1)
+SMIterator::SMIterator(const SortedMap &m) : map(m) {
+    //theta(1)
     //default
 
     index = 0;
 }
 
-void SMIterator::first() { //theta(1)
+void SMIterator::first() {
+    //theta(1)
     //default
 
     index = 0; //for first elem in array
 }
 
-void SMIterator::next() { //theta(1)
+void SMIterator::next() {
+    //theta(1)
     //default
 
     if (!valid()) {
@@ -28,7 +31,8 @@ void SMIterator::next() { //theta(1)
     index++;
 }
 
-bool SMIterator::valid() const { //theta(1)
+bool SMIterator::valid() const {
+    //theta(1)
     //default
 
     if (index >= 0 && index < map.size()) {
@@ -37,7 +41,8 @@ bool SMIterator::valid() const { //theta(1)
     return false;
 }
 
-TElem SMIterator::getCurrent() const { //theta(1)
+TElem SMIterator::getCurrent() const {
+    //theta(1)
     //default
 
     if (valid()) {
