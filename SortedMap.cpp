@@ -12,7 +12,7 @@ SortedMap::SortedMap(Relation r) {
 }
 
 TValue SortedMap::add(TKey k, TValue v) {
-    //O(sizeOf)
+    //O(sizeOf) best: theta(1), worst: theta(sizeOf)
     for (int i = 0; i < sizeOf; i++) {
         //if key k already exists in array, return TValue oldValue
         if (array[i].first == k) {
@@ -66,7 +66,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 }
 
 TValue SortedMap::search(TKey k) const {
-    //O(sizeOf)
+    //O(sizeOf) best: theta(1), worst: theta(sizeOf)
     for (int i = 0; i < sizeOf; i++) {
         if (array[i].first == k) {
             return array[i].second;
@@ -76,7 +76,7 @@ TValue SortedMap::search(TKey k) const {
 }
 
 TValue SortedMap::remove(TKey k) {
-    //O(sizeOf)
+    //O(sizeOf) best: theta(1), worst: theta(sizeOf)
     if (sizeOf == 0) {
         return NULL_TVALUE;
     }
@@ -116,12 +116,12 @@ TValue SortedMap::remove(TKey k) {
 }
 
 int SortedMap::size() const {
-    //theta(1)
+    //theta(1) best: theta(1), worst: theta(1)
     return sizeOf;
 }
 
 bool SortedMap::isEmpty() const {
-    //theta(1)
+    //theta(1) best: theta(1), worst: theta(1)
     if (sizeOf == 0) {
         return true;
     }
@@ -129,16 +129,17 @@ bool SortedMap::isEmpty() const {
 }
 
 SMIterator SortedMap::iterator() const {
-    //theta(1)
+    //theta(1) best: theta(1), worst: theta(1)
     return SMIterator(*this);
 }
 
 SortedMap::~SortedMap() {
+    //theta(1) best: theta(1), worst: theta(1)
     delete[] array;
 }
 
 void SortedMap::resizeUp() {
-    //theta(sizeOf)
+    //theta(sizeOf) //theta(sizeOf) best: theta(sizeOf), worst: theta(sizeOf)
     capacity *= 2;
     TElem *temp = new TElem[capacity];
 
@@ -151,7 +152,7 @@ void SortedMap::resizeUp() {
 }
 
 void SortedMap::resizeDown() {
-    //theta(sizeOf)
+    //theta(sizeOf) best: theta(sizeOf), worst: theta(sizeOf)
     capacity /= 2;
     TElem *temp = new TElem[capacity];
 
