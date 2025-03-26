@@ -42,7 +42,7 @@ TValue SortedMap::add(TKey k, TValue v) {
             array[0] = TElem(k, v);
             sizeOf += 1;
         } else {
-            //if k > arr -> place k second in arr
+            //place k second in arr
             array[1] = TElem(k, v);
             sizeOf += 1;
         }
@@ -117,6 +117,7 @@ TValue SortedMap::remove(TKey k) {
 
 int SortedMap::size() const {
     //theta(1) best: theta(1), worst: theta(1)
+
     return sizeOf;
 }
 
