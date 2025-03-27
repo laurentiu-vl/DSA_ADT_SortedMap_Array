@@ -8,5 +8,6 @@
 #pragma once
 
 void testAll();
+void newTest();
 
 #endif //SHORTTEST_H

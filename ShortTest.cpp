@@ -4,6 +4,7 @@
 #include "SMIterator.h"
 #include "ShortTest.h"
 #include <exception>
+#include <iostream>
 using namespace std;
 
 bool relatie1(TKey cheie1, TKey cheie2) {
@@ -14,6 +15,18 @@ bool relatie1(TKey cheie1, TKey cheie2) {
         return false;
     }
 }
+
+void newTest() {
+    SortedMap sm(relatie1);
+    sm.add(1, 2);
+    sm.add(2, 5);
+    sm.add(3, 8);
+    sm.add(5, 8);
+
+    SortedMap sm2(relatie1);
+    sm2.interval(2, 5);
+}
+
 
 void testAll(){
     SortedMap sm(relatie1);
