@@ -182,7 +182,6 @@ void testAddAndSearch(Relation r) {
 			it.next();
 		}
 	}
-
 }
 
 void testAdd() {
