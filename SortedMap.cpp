@@ -11,6 +11,27 @@ SortedMap::SortedMap(Relation r) {
     compare = r;
 }
 
+SortedMap SortedMap::interval(TKey a, TKey b) {
+
+    array = new TElem[capacity];
+    SortedMap newSM (this->compare);
+    int oldSize = sizeOf;
+    SMIterator it = this->iterator();
+    it.first(); //?????
+
+    for (int i = 0; i < oldSize; i++) { //O(n)
+        if (compare(a, it.getCurrent().first) &&
+            compare(it.getCurrent().first, b)) { //?
+            ////resize?
+            //array[i] = it.getCurrent();
+            newSM.add(it.getCurrent().first, it.getCurrent().second);
+            //resizeUp();
+        }
+        it.next();
+    }
+    return newSM;
+}
+
 TValue SortedMap::add(TKey k, TValue v) {
     //O(sizeOf) best: theta(1), worst: theta(sizeOf)
     for (int i = 0; i < sizeOf; i++) {

@@ -29,6 +29,9 @@ private:
             (key, value) und sortiert mithilfe einer Relation auf den Schlüsseln (key)
     */
 
+    //functie suplimentara: returnati un alt sorted map care contine cheile dintr-un interval dat,
+    //parametru a si b (astea sunt cheile, intre a si b)
+
     TElem* array;
     int capacity;
     int sizeOf;
@@ -40,6 +43,8 @@ public:
 
     // implicit constructor
     SortedMap(Relation r);
+
+    SortedMap interval(TKey a, TKey b);
 
     // adds a pair (key,value) to the map
     //if the key already exists in the map, then the value associated to the key is replaced by the new value and the old value is returned
