@@ -16,15 +16,15 @@ bool relatie1(TKey cheie1, TKey cheie2) {
     }
 }
 
-void newTest() {
-    SortedMap sm(relatie1);
-    sm.add(1, 2);
-    sm.add(2, 5);
-    sm.add(3, 8);
-    sm.add(5, 8);
-
-    sm.interval(2, 5);
-}
+// void newTest() {
+//     SortedMap sm(relatie1);
+//     sm.add(1, 2);
+//     sm.add(2, 5);
+//     sm.add(3, 8);
+//     sm.add(5, 8);
+//
+//     sm.interval(2, 5);
+// }
 
 
 void testAll(){
