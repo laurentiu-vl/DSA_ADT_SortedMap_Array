@@ -97,7 +97,7 @@ TValue SortedMap::search(TKey k) const {
 }
 
 TValue SortedMap::remove(TKey k) {
-    //O(sizeOf) best: theta(1), worst: theta(sizeOf)
+    //O(sizeOf) best: theta(1), worst: theta(sizeOf) //best: theta(n)? de verificat
     if (sizeOf == 0) {
         return NULL_TVALUE;
     }
