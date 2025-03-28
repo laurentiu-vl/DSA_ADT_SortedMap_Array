@@ -13,23 +13,23 @@ SortedMap::SortedMap(Relation r) {
 
 SortedMap SortedMap::interval(TKey a, TKey b) {
 
-    array = new TElem[capacity];
-    SortedMap newSM (this->compare);
-    int oldSize = sizeOf;
-    SMIterator it = this->iterator();
-    it.first(); //?????
-
-    for (int i = 0; i < oldSize; i++) { //O(n)
-        if (compare(a, it.getCurrent().first) &&
-            compare(it.getCurrent().first, b)) { //?
-            ////resize?
-            //array[i] = it.getCurrent();
-            newSM.add(it.getCurrent().first, it.getCurrent().second);
-            //resizeUp();
-        }
-        it.next();
-    }
-    return newSM;
+    // array = new TElem[capacity];
+    // SortedMap newSM (this->compare);
+    // int oldSize = sizeOf;
+    // SMIterator it = this->iterator();
+    // it.first(); //?????
+    //
+    // for (int i = 0; i < oldSize; i++) { //O(n)
+    //     if (compare(a, it.getCurrent().first) &&
+    //         compare(it.getCurrent().first, b)) { //?
+    //         ////resize?
+    //         //array[i] = it.getCurrent();
+    //         newSM.add(it.getCurrent().first, it.getCurrent().second);
+    //         //resizeUp();
+    //     }
+    //     it.next();
+    // }
+    // return newSM;
 }
 
 TValue SortedMap::add(TKey k, TValue v) {
@@ -41,6 +41,10 @@ TValue SortedMap::add(TKey k, TValue v) {
             array[i].second = v; //save the new value v to the key
             return oldValue; //return the old value of the k
         }
+    }
+
+    if (sizeOf == capacity) {
+        resizeUp(); //resize
     }
 
     if (sizeOf == 0) {
@@ -70,9 +74,9 @@ TValue SortedMap::add(TKey k, TValue v) {
         return NULL_TVALUE;
     }
 
-    if (sizeOf == capacity) {
-        resizeUp(); //resize
-    }
+    // if (sizeOf == capacity) {
+    //     resizeUp(); //resize
+    // }
 
     int index = sizeOf;
     while (index > 0 && compare(k, array[index - 1].first)) {
