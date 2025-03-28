@@ -23,8 +23,7 @@ void newTest() {
     sm.add(3, 8);
     sm.add(5, 8);
 
-    SortedMap sm2(relatie1);
-    sm2.interval(2, 5);
+    sm.interval(2, 5);
 }
 
 
