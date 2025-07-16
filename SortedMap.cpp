@@ -4,7 +4,7 @@
 using namespace std;
 
 SortedMap::SortedMap(Relation r) {
-    //theta(1)
+    //theta 1
     capacity = 2;
     array = new TElem[capacity];
     sizeOf = 0;
@@ -33,7 +33,7 @@ SortedMap SortedMap::interval(TKey a, TKey b) {
 }
 
 TValue SortedMap::add(TKey k, TValue v) {
-    //O(sizeOf) best: theta(1), worst: theta(sizeOf)
+    //O(n) best: O(n), worst: theta(n)
     for (int i = 0; i < sizeOf; i++) {
         //if key k already exists in array, return TValue oldValue
         if (array[i].first == k) {
@@ -91,7 +91,7 @@ TValue SortedMap::add(TKey k, TValue v) {
 }
 
 TValue SortedMap::search(TKey k) const {
-    //O(sizeOf) best: theta(1), worst: theta(sizeOf)
+    //O(n) best: theta(1), worst: theta(n)
     for (int i = 0; i < sizeOf; i++) {
         if (array[i].first == k) {
             return array[i].second;
@@ -101,7 +101,7 @@ TValue SortedMap::search(TKey k) const {
 }
 
 TValue SortedMap::remove(TKey k) {
-    //O(sizeOf) best: theta(1), worst: theta(sizeOf) //best: theta(n)? de verificat
+    //O(n) best: theta(1), worst: theta(n) //best: theta(n)? de verificat
     if (sizeOf == 0) {
         return NULL_TVALUE;
     }
@@ -165,7 +165,7 @@ SortedMap::~SortedMap() {
 }
 
 void SortedMap::resizeUp() {
-    //theta(sizeOf) //theta(sizeOf) best: theta(sizeOf), worst: theta(sizeOf)
+    //theta(n) best: theta(n), worst: theta(n)
     capacity *= 2;
     TElem *temp = new TElem[capacity];
 
@@ -178,7 +178,7 @@ void SortedMap::resizeUp() {
 }
 
 void SortedMap::resizeDown() {
-    //theta(sizeOf) best: theta(sizeOf), worst: theta(sizeOf)
+    //theta(n) best: theta(n), worst: theta(n)
     capacity /= 2;
     TElem *temp = new TElem[capacity];
 
