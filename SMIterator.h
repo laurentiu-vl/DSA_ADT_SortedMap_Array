@@ -16,12 +16,10 @@ private:
     SMIterator(const SortedMap& mapionar);
 
     //TODO - Representation
-
     /* ADT SortedMap – repräsentiert mithilfe eines dynamischen Arrays von Paaren der Form
                 (key, value) und sortiert mithilfe einer Relation auf den Schlüsseln (key)
-        */
+    */
 
-    //SortedMap map;
     int index;
 
 public:
