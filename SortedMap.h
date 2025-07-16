@@ -25,8 +25,9 @@ class SortedMap {
 
 private:
 
+    //TODO - Representation
     /* ADT SortedMap – repräsentiert mithilfe eines dynamischen Arrays von Paaren der Form
-            (key, value) und sortiert mithilfe einer Relation auf den Schlüsseln (key)
+                (key, value) und sortiert mithilfe einer Relation auf den Schlüsseln (key)
     */
 
     //functie suplimentara: returnati un alt sorted map care contine cheile dintr-un interval dat,
@@ -71,8 +72,5 @@ public:
     ~SortedMap();
 
 };
-
-
-
 
 #endif //SORTEDMAP_H
