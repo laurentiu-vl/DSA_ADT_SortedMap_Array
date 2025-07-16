@@ -4,9 +4,6 @@
 
 #ifndef SORTEDMAP_H
 #define SORTEDMAP_H
-
-
-
 #pragma once
 //DO NOT INCLUDE SORTEDMAPITERATOR
 
@@ -17,6 +14,7 @@ typedef int TValue;
 typedef std::pair<TKey, TValue> TElem;
 #define NULL_TVALUE -111111
 #define NULL_TPAIR pair<TKey, TValue>(-111111, -111111);
+
 class SMIterator;
 typedef bool(*Relation)(TKey, TKey);
 
@@ -24,7 +22,6 @@ class SortedMap {
     friend class SMIterator;
 
 private:
-
     //TODO - Representation
     /* ADT SortedMap – repräsentiert mithilfe eines dynamischen Arrays von Paaren der Form
                 (key, value) und sortiert mithilfe einer Relation auf den Schlüsseln (key)

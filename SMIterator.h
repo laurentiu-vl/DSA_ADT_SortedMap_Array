@@ -11,6 +11,7 @@
 //DO NOT CHANGE THIS PART
 class SMIterator{
     friend class SortedMap;
+
 private:
     const SortedMap& map;
     SMIterator(const SortedMap& mapionar);
@@ -19,7 +20,6 @@ private:
     /* ADT SortedMap – repräsentiert mithilfe eines dynamischen Arrays von Paaren der Form
                 (key, value) und sortiert mithilfe einer Relation auf den Schlüsseln (key)
     */
-
     int index;
 
 public:
